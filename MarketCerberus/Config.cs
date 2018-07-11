@@ -38,16 +38,16 @@ namespace MarketCerberus
                 },
                 new Client
                 {
-                    ClientId = "js",
+                    ClientId = "marketfrontend",
                     ClientName = "JavaScript Client",
-                    ClientUri = "http://identityserver.io",
+                    ClientUri = "http://localhost:4200",
 
                     AllowedGrantTypes = GrantTypes.Implicit,
                     AllowAccessTokensViaBrowser = true,
 
-                    RedirectUris = {"http://localhost:7017/index.html"},
-                    PostLogoutRedirectUris = {"http://localhost:7017/index.html"},
-                    AllowedCorsOrigins = {"http://localhost:7017"},
+                    RedirectUris = {"http://localhost:4200/"},
+                    PostLogoutRedirectUris = {"http://localhost:4200/"},
+                    AllowedCorsOrigins = {"http://localhost:4200"},
 
                     AllowedScopes =
                     {
@@ -97,13 +97,13 @@ namespace MarketCerberus
                 new TestUser
                 {
                     SubjectId = "1",
-                    Username = "alice",
-                    Password = "password",
+                    Username = "jlagedo",
+                    Password = "123456",
 
                     Claims = new[]
                     {
-                        new Claim("name", "Alice"),
-                        new Claim("website", "https://alice.com")
+                        new Claim("name", "João Amaro Lagedo"),
+                        new Claim("website", "https://lagedo.com")
                     }
                 },
                 new TestUser
