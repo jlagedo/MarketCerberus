@@ -12,7 +12,20 @@ namespace MarketCerberus
         {
             return new List<ApiResource>
             {
-                new ApiResource("api1", "My API")
+                new ApiResource
+                    {
+                    Name = "markettaskerapi",
+                    DisplayName = "Market Task API",
+                    Scopes =
+                    {
+                        new Scope
+                        {
+                            Name = "markettaskerapi.full_access",
+                            DisplayName = "Full access to Market Task API"
+                        }
+                    }
+                    }
+
             };
         }
 
@@ -41,7 +54,7 @@ namespace MarketCerberus
                     ClientId = "marketfrontend",
                     ClientName = "JavaScript Client",
                     ClientUri = "http://localhost:4200",
-
+                    RequireConsent = false,
                     AllowedGrantTypes = GrantTypes.Implicit,
                     AllowAccessTokensViaBrowser = true,
 
@@ -54,9 +67,7 @@ namespace MarketCerberus
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Email,
-
-                        "api1",
-                        "api2.read_only"
+                        "markettaskerapi.full_access"
                     }
                 },
                 new Client
@@ -96,15 +107,16 @@ namespace MarketCerberus
             {
                 new TestUser
                 {
-                    SubjectId = "1",
+                    SubjectId = "99",
                     Username = "jlagedo",
                     Password = "123456",
-
+                    
                     Claims = new[]
                     {
                         new Claim("name", "João Amaro Lagedo"),
                         new Claim("website", "https://lagedo.com")
                     }
+                    
                 },
                 new TestUser
                 {
